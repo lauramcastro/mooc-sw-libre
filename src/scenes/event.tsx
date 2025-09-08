@@ -48,7 +48,7 @@ export default makeScene2D(function* (view) {
           opacity={0}
           y={-50}
         >
-          <Img src={udcLogo} width={120} height={120} />
+          <Img src={udcLogo} width={120} />
           <Layout direction="column" alignItems="center" gap={15}>
             <Txt
               fontSize={48}
@@ -65,7 +65,7 @@ export default makeScene2D(function* (view) {
             </Txt>
             <Rect width={400} height={3} fill={'#0ea5e9'} radius={2} />
           </Layout>
-          <Img src={ficLogo} width={120} height={120} />
+          <Img src={ficLogo} width={120} />
         </Layout>
 
         {/* Main Content */}
@@ -168,18 +168,6 @@ export default makeScene2D(function* (view) {
             </Txt>
           </Rect>
         </Layout>
-
-        {/* Location at bottom */}
-        <Txt
-          fontSize={42}
-          fill={'#1e293b'}
-          fontWeight={600}
-          opacity={0}
-          cache
-          textAlign={'center'}
-        >
-          📍 Facultade de Informática - UDC{'\n'}Camiño do Lagar de Castro, 6
-        </Txt>
       </Rect>
     </>
   )
@@ -204,15 +192,10 @@ export default makeScene2D(function* (view) {
 
   yield* waitFor(0.3)
 
-  yield* container().children()[3].opacity(1, 0.6)
-
   yield* waitFor(1.5)
 
   // Highlight important info
-  yield* all(
-    footer().scale(1.05, 0.4).to(1, 0.4),
-    container().children()[3].scale(1.03, 0.3).to(1, 0.3)
-  )
+  yield* all(footer().scale(1.05, 0.4).to(1, 0.4))
 
   yield* waitFor(2)
 })

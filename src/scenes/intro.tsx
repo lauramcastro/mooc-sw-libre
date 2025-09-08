@@ -31,14 +31,7 @@ export default makeScene2D(function* (view) {
         scale={0.8}
       >
         {/* GPUL Logo */}
-        <Img
-          ref={logo}
-          src={gpulLogo}
-          width={300}
-          height={300}
-          opacity={0}
-          scale={0}
-        />
+        <Img ref={logo} src={gpulLogo} width={300} opacity={0} scale={0} />
 
         {/* Association Name */}
         <Layout direction="column" alignItems="center" gap={20}>
