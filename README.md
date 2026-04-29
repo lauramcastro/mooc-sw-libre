@@ -3,14 +3,15 @@
 Este repositorio recolle a animación de contidos en vídeo producidos para o MOOC _Software Libre para Mentes Abertas_
 da Universidade da Coruña.
 
-É un _fork_ do repositorio (https://github.com/gpul-org/schools-video)[GPUL Schools Video Generator].
+É un _fork_ do repositorio [GPUL Schools Video Generator](https://github.com/gpul-org/schools-video).
 
 ## Obxectivo
 
-Este repositorio é un proxecto de (https://github.com/motion-canvas/motion-canvas)[Motion Canvas] para crear vídeos nos
+Este repositorio é un proxecto de [Motion Canvas](https://github.com/motion-canvas/motion-canvas) para crear vídeos nos
 que o contido é animado a partir dunha descrición programada.
 
-En concreto, o contido deste proxecto ilustra o **concepto de software libre** e as **4 liberdades do software libre**.
+En concreto, o contido deste proxecto contén animacións que ilustran o **concepto de software libre** e as
+**4 liberdades do software libre**.
 
 ## Estrutura
 
