@@ -4,20 +4,19 @@ import { all, waitFor } from '@motion-canvas/core/lib/flow'
 import { easeInOutCubic, easeOutBack } from '@motion-canvas/core/lib/tweening'
 import { createRef } from '@motion-canvas/core/lib/utils'
 
-import gpulLogo from '../images/gpul.svg'
+import logoUDC from '../images/03_Simbolo_logo_cor.svg'; // Attribution: https://www.udc.es/identidadecorporativa/
 
 export default makeScene2D(function* (view) {
   const background = createRef<Rect>()
-  const container = createRef<Rect>()
-  const logo = createRef<Img>()
-  const associationName = createRef<Txt>()
-  const tagline = createRef<Txt>()
-  const presents = createRef<Txt>()
+  const container  = createRef<Rect>()
+  const logo       = createRef<Img>()
+  const courseName = createRef<Txt>()
+  const tagline    = createRef<Txt>()
 
   yield view.add(
     <>
       {/* Light Background */}
-      <Rect ref={background} width={1920} height={1080} fill={'#f8fafc'} />
+      <Rect ref={background} width={1280} height={720} fill={'#f8fafc'} />
 
       {/* Main container */}
       <Rect
@@ -30,13 +29,13 @@ export default makeScene2D(function* (view) {
         opacity={0}
         scale={0.8}
       >
-        {/* GPUL Logo */}
-        <Img ref={logo} src={gpulLogo} width={300} opacity={0} scale={0} />
+        {/* Logo */}
+        <Img ref={logo} src={logoUDC} width={500} opacity={0} scale={0} />
 
-        {/* Association Name */}
+        {/* Course Name */}
         <Layout direction="column" alignItems="center" gap={20}>
           <Txt
-            ref={associationName}
+            ref={courseName}
             fontSize={56}
             fill={'#1e293b'}
             fontWeight={800}
@@ -46,7 +45,7 @@ export default makeScene2D(function* (view) {
             cache
             textAlign={'center'}
           >
-            GRUPO DE PROGRAMADORES{'\n'}E USUARIOS DE LINUX
+            Software libre para mentes abertas
           </Txt>
 
           <Txt
@@ -58,51 +57,35 @@ export default makeScene2D(function* (view) {
             opacity={0}
             cache
           >
-            Freeing minds since 1998
+            Un MOOC da Universidade da Coruña
           </Txt>
         </Layout>
 
-        {/* Presents text */}
-        <Txt
-          ref={presents}
-          fontSize={48}
-          fill={'#0ea5e9'}
-          fontWeight={600}
-          letterSpacing={2}
-          opacity={0}
-          scale={0.8}
-          cache
-        >
-          PRESENTA
-        </Txt>
       </Rect>
     </>
   )
 
   // Animation sequence
   yield* container().opacity(1, 0.6, easeInOutCubic)
-  yield* waitFor(0.2)
+  yield* waitFor(0.5)
 
-  yield* all(logo().opacity(1, 0.8), logo().scale(1, 1.2, easeOutBack))
+  yield* all(logo().opacity(1, 0.8), logo().scale(1, 2, easeOutBack))
 
-  yield* waitFor(0.3)
+  yield* waitFor(0.5)
 
   yield* all(
-    associationName().opacity(1, 0.8),
-    associationName().y(0, 0.8, easeInOutCubic)
+    courseName().opacity(1, 0.8),
+    courseName().y(0, 0.8, easeInOutCubic)
   )
 
-  yield* waitFor(0.2)
+  yield* waitFor(0.5)
 
   yield* tagline().opacity(1, 0.6)
-  yield* waitFor(0.4)
-
-  yield* all(presents().opacity(1, 0.8), presents().scale(1, 0.8, easeOutBack))
 
   yield* waitFor(1)
 
   // Gentle logo pulse
-  yield* logo().scale(1.05, 0.5).to(1, 0.5)
+  yield* logo().scale(1.25, 0.5).to(1, 0.5)
 
-  yield* waitFor(0.5)
+  yield* waitFor(1)
 })

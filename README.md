@@ -1,63 +1,43 @@
-# GPUL Schools Video Generator
+# Animación de contidos en vídeo
 
-A professional digital signage video generation system for GPUL (Grupo de Programadores e Usuarios de Linux) events at Universidade da Coruña, Facultade de Informática.
+Este repositorio recolle a animación de contidos en vídeo producidos para o MOOC _Software Libre para Mentes Abertas_
+da Universidade da Coruña.
 
-## 🎯 Purpose
+É un _fork_ do repositorio (https://github.com/gpul-org/schools-video)[GPUL Schools Video Generator].
 
-This Motion Canvas project creates animated videos for displaying event announcements on digital screens throughout the university. The videos showcase GPUL meetups, talks, and events in an engaging, professional format that catches students' attention.
+## Obxectivo
 
-## 🛠️ Technical Stack
+Este repositorio é un proxecto de (https://github.com/motion-canvas/motion-canvas)[Motion Canvas] para crear vídeos nos
+que o contido é animado a partir dunha descrición programada.
 
-- **Motion Canvas** - Animation framework
-- **TypeScript** - Type-safe development
-- **Vite** - Fast build system
-- **SVG logos** - Scalable university branding
+En concreto, o contido deste proxecto ilustra o **concepto de software libre** e as **4 liberdades do software libre**.
 
-## 📁 Project Structure
+## Estrutura
 
 ```
 src/
-├── scenes/             # Animation scenes
-│   ├── intro.tsx       # Scene 1: GPUL intro
-│   ├── event.tsx       # Scene 2: Event details
-│   └── outro.tsx       # Scene 3: Social outro
-├── images/             # University logos
-│   ├── gpul.svg        # GPUL logo
-│   ├── udc.svg         # UDC logo
-│   └── fic.svg         # FIC logo
-└── project.ts          # Main project config
+├── audio/              # Sons empregados nas escenas
+├── images/             # Imaxes empregadas nas escenas
+├── scenes/             # Escenas animadas
+│   ├── intro.tsx       # Scene: Introdución do MOOC
+│   ├── corpo.tsx       # Scene: Concepto de software libre
+│   └── explicacion.tsx # Scene: As 4 liberdades do software libre
+└── project.ts          # Guión principal
 ```
 
-## 🚀 Getting Started
+## Reproducir, reutilizar, adaptar
 
-### Prerequisites
+### Prerequisitos
 
 - Node.js 16+
-- pnpm (recommended) or npm
+- pnpm (recommended) ou npm
 
-### Installation
+### Instalación
 
 ```bash
-# Install dependencies
+# Instalar dependencias
 pnpm install
 
-# Start development server
+# Iniciar o servidor de desenvolvemento
 pnpm start
 ```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Update event details for your specific meetup
-4. Test the animation locally
-5. Submit a pull request
-
-## 📞 Contact
-
-- **GPUL Website**: https://gpul.org
-- **Social Media**: @gpul\_
-
----
-
-**Made with ❤️ by GPUL for the community**
