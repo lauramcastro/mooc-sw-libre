@@ -27,124 +27,115 @@ export default makeScene2D(function* (view) {
   yield view.add(
     <>
       {/* Light Background */}
-      <Rect ref={background} width={1280} height={720} fill={'#f8fafc'} />
+      <Rect ref={background} width={1920} height={1080} fill={'#f8fafc'} />
 
       {/* Title */}
       <Txt
         ref={title}
         y={-100}
-        fontSize={40}
-        fill={'#E1306C'}
+        fontSize={80}
         fontWeight={800}
+        fill={'#E1306C'}
         letterSpacing={2}
         opacity={0}
-        scale={0.9}
         cache
       >
           Concepto de Software Libre
       </Txt>
 
       <Img
-        ref={tap}
-        src={tapPNG}
-        width={150}
-        opacity={0}
-        x={-90}
-        y={-40}
-        scale={0.8}
-      />
-
-      <Img
         ref={bucket}
         src={bucketPNG}
-        width={150}
-        opacity={0}
-        x={-40}
-        y={110}
+        width={300}
+        x={-100}
+        y={75}
         offsetY={-1}
-        scale={0.8}
+        opacity={0}
       />
     
       <Img
         ref={bottle}
         src={bottlePNG}
-        width={110}
-        opacity={0}
-        x={-32}
-        y={65}
+        width={200}
+        x={-59}
+        y={0}
         offsetY={-1}
-        scale={0.8}
+        opacity={0}
       />
     
       <Img
         ref={bathtub}
         src={bathtubPNG}
-        width={350}
-        opacity={0}
+        width={600}
         x={0}
-        y={50}
+        y={-5}
         offsetY={-1}
-        scale={0.8}
+        opacity={0}
       />
     
       <Rect
         ref={water}
-        width={25}
+        width={50}
         height={0}
-        x={-50}
-        y={0}
+        x={-100}
+        y={-30}
         offsetY={-1}
         fill={'#4aa3df'}
         opacity={0.9}
       />
 
       <Img
+        ref={tap}
+        src={tapPNG}
+        width={300}
+        x={-200}
+        y={-125}
+        opacity={0}
+      />
+
+      <Img
         ref={bwater}
         src={bwaterPNG}
-        width={90}
+        width={125}
+        x={-425}
+        y={-100}
         opacity={0}
-        x={0}
-        y={-50}
-        scale={0.8}
       />
     
       <Img
         ref={bwater2}
         src={bwaterPNG}
-        width={90}
+        width={125}
+        x={0}
+        y={-100}
         opacity={0}
-        x={250}
-        y={-50}
-        scale={0.8}
       />
 
       <Img
         ref={bwater3}
         src={bwaterPNG}
-        width={90}
+        width={125}
+        x={425}
+        y={-100}
         opacity={0}
-        x={-250}
-        y={-50}
-        scale={0.8}
       />
     
       <Img
         ref={plant}
         src={plantPNG}
-        height={200}
-        opacity={0}
+        height={575}
         x={-35}
         y={100}
-        scale={0.8}
+        opacity={0}
       />
 
       <Txt
         ref={caption}
-        y={275}
-        fontSize={30}
+        y={425}
+        fontSize={60}
         fill={'#8a8b8a'}
-        opacity={0.9}
         textAlign={'center'}
+        opacity={0.9}
       />
 
     </>
@@ -155,14 +146,14 @@ export default makeScene2D(function* (view) {
 
   yield* waitFor(1)
 
-  yield* title().y(-250, 1, easeInOutCubic)
+  yield* title().y(-400, 1, easeInOutCubic)
 
   yield* waitFor(1)
 
   // Scene 1: Faucet appears, water flows down
   yield* all(
     tap().opacity(1, 2),
-    water().height(133, 2, easeInOutCubic),
+    water().height(167, 2, easeInOutCubic),
     bucket().opacity(1, 2),
     caption().text("Nas nosas casas, a auga sae da billa.", 2)
   )
@@ -179,10 +170,10 @@ export default makeScene2D(function* (view) {
 
   // Scene 3: Bottle appears, bucket slides left, water reruns  
   yield* all(
-    bucket().x(-300, 1, easeInOutCubic),
+    bucket().x(-650, 1, easeInOutCubic),
     bottle().opacity(1, 2),
     water().width(15, 0.1),
-    water().height(200, 2, easeInOutCubic),
+    water().height(337, 2, easeInOutCubic),
     caption().text("Usamos exactamente a que precisamos.", 2)
   )
 
@@ -198,10 +189,10 @@ export default makeScene2D(function* (view) {
 
   // Scene 5: Bathtub appears, bottle slides right, water reruns  
   yield* all(
-    bottle().x(300, 1, easeInOutCubic),
+    bottle().x(700, 1, easeInOutCubic),
     bathtub().opacity(1, 2),
     water().width(30, 0.1),
-    water().height(117, 2, easeInOutCubic),
+    water().height(171, 2, easeInOutCubic),
     caption().text("Empregámola para o que queremos.", 2)
   )
 
@@ -218,7 +209,7 @@ export default makeScene2D(function* (view) {
   // Scene 7: Faucet disappears, bottled waters replace other items
   yield* all(
     tap().opacity(0, 1),
-    bwater().opacity(1, 2),
+    bwater3().opacity(1, 2),
     caption().text("Pensa agora na auga embotellada.", 2)
   )
 
@@ -247,7 +238,7 @@ export default makeScene2D(function* (view) {
 
   yield* all(
     bathtub().opacity(0, 2),
-    bwater3().opacity(1, 1),
+    bwater().opacity(1, 1),
     caption().text("Non está pensada para compartir.", 2)
   )
 
@@ -272,8 +263,8 @@ export default makeScene2D(function* (view) {
   yield* waitFor(3)
 
   yield* all(
-    water().width(10, 0.1),
-    water().height(120, 2, easeInOutCubic),
+    water().width(20, 0.1),
+    water().height(225, 2, easeInOutCubic),
     plant().opacity(1, 2),
     caption().text("Tes sede de máis...?", 2)
   )
