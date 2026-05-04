@@ -97,7 +97,7 @@ export default makeScene2D(function* (view) {
         ref={bwater}
         src={bwaterPNG}
         width={125}
-        x={-425}
+        x={0}
         y={-100}
         opacity={0}
       />
@@ -115,7 +115,7 @@ export default makeScene2D(function* (view) {
         ref={bwater3}
         src={bwaterPNG}
         width={125}
-        x={425}
+        x={0}
         y={-100}
         opacity={0}
       />
@@ -208,37 +208,41 @@ export default makeScene2D(function* (view) {
 
   // Scene 7: Faucet disappears, bottled waters replace other items
   yield* all(
-    tap().opacity(0, 1),
-    bwater3().opacity(1, 2),
+    tap().opacity(0, 2),
+    bucket().opacity(0, 2),
+    bathtub().opacity(0, 2),
+    bottle().opacity(0, 2),
     caption().text("Pensa agora na auga embotellada.", 2)
   )
 
   yield* waitFor(3)
 
   // Scene 8: 
-  yield* caption().text("Podes ver algunha diferenza?", 2)
+  yield* all(
+    bwater().opacity(1, 2),
+    bwater2().opacity(1, 2),
+    bwater3().opacity(1, 2),
+    caption().text("Podes ver algunha diferenza?", 2)
+  )
 
   yield* waitFor(3)
 
   // Scene 9: Items disappear
   yield* all(
-    bucket().opacity(0, 2),
     caption().text("Vén nun envase que non podes elixir.", 2)
   )
 
   yield* waitFor(3)
 
   yield* all(
-    bottle().opacity(0, 2),
-    bwater2().opacity(1, 1),
+    bwater().x(-450, 2, easeInOutCubic),
     caption().text("Vén en tamaños xa establecidos.", 2)
   )
 
   yield* waitFor(3)
 
   yield* all(
-    bathtub().opacity(0, 2),
-    bwater().opacity(1, 1),
+    bwater3().x(450, 2, easeInOutCubic),
     caption().text("Non está pensada para compartir.", 2)
   )
 
